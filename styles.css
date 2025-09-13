@@ -1,66 +1,73 @@
-/* ===== Basic Reset & Fonts ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background: #f9f9f9;
-    color: #333;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+  scroll-behavior: smooth;
 }
 a { color: #0077b6; text-decoration: none; }
-h1, h2 { color: #222; }
+h1, h2 { color: #222; margin-bottom: 1rem; }
+section { padding: 5rem 2rem; max-width: 1000px; margin: auto; }
 
-/* ===== Layout ===== */
+/* ===== Header (Hero) ===== */
 header {
-    background: #0077b6;
-    color: white;
-    padding: 2rem;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(120deg, #0077b6, #00b4d8);
+  color: white;
+  text-align: center;
 }
-header h1 { font-size: 2.5rem; }
-header p { margin-top: 0.5rem; font-size: 1.2rem; }
+header h1 { font-size: 3rem; margin-bottom: 1rem; }
+header p { font-size: 1.2rem; }
 
+/* ===== Navigation ===== */
 nav {
-    background: #023e8a;
-    padding: 1rem;
-    text-align: center;
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 100;
 }
 nav a {
-    margin: 0 15px;
-    color: white;
-    font-weight: bold;
+  margin: 0 15px;
+  font-weight: 600;
+  color: #333;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: #0077b6;
 }
 
-section {
-    padding: 3rem 1.5rem;
-    max-width: 900px;
-    margin: auto;
+/* ===== Section Styling ===== */
+.project, section ul {
+  background: white;
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
 }
 
-.project {
-    background: white;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
+/* ===== Footer ===== */
 footer {
-    text-align: center;
-    padding: 2rem;
-    background: #0077b6;
-    color: white;
+  text-align: center;
+  padding: 2rem;
+  background: #0077b6;
+  color: white;
 }
 
-/* ===== Button Styling ===== */
-.btn {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 10px 20px;
-    background: #0077b6;
-    color: white;
-    border-radius: 5px;
-    transition: 0.3s;
+/* ===== Scroll Animations ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
 }
-.btn:hover {
-    background: #023e8a;
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
