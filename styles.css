@@ -1,14 +1,29 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: 'Quicksand', sans-serif;
   line-height: 1.6;
-  background: #f9f9f9;
+  background: #fdf5e6;
   color: #333;
   scroll-behavior: smooth;
 }
-a { color: #0077b6; text-decoration: none; }
-h1, h2 { color: #222; margin-bottom: 1rem; }
-section { padding: 5rem 2rem; max-width: 1000px; margin: auto; }
+
+
+h1, h2 {
+  font-family: 'Noto Serif Display', serif;
+  font-weight: 600;
+}
+
+h2 {
+  margin-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h3 {
+  font-family: 'Bodoni Moda', serif;
+  font-weight: 500;
+  color: #e40202;
+}
+section { padding: 2rem 2rem; max-width: 1000px; margin: auto; }
 
 /* ===== Header (Hero) ===== */
 header {
@@ -19,16 +34,54 @@ header {
   height: 100vh;
   background: linear-gradient(120deg, #0077b6, #00b4d8);
   color: white;
-  text-align: center;
+  text-align: left;
 }
 header h1 { font-size: 3rem; margin-bottom: 1rem; }
 header p { font-size: 1.2rem; }
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('assets/landing-image.jpg') no-repeat center center/cover;
+  color: rgb(255, 255, 255);}
+
+.hero-text {
+  position: absolute;
+  bottom: 2rem;
+  left: 1.3rem;
+  max-width: 700px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.15); /* translucent light banner */
+  padding: 1rem 1rem;
+  border-radius: 6px;
+}
+
+.hero h1 {
+  font-family: 'Noto Serif Display', serif;
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.1rem;
+  color: #4093df;
+}
+
+.hero p {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.hero a {
+  color: #d0ff00; /* highlight links in gold or accent */
+  font-weight: 300;
+}
 
 /* ===== Navigation ===== */
 nav {
   position: sticky;
   top: 0;
-  background: white;
+  background: #fcf4de;
   padding: 1rem;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -36,6 +89,7 @@ nav {
 }
 nav a {
   margin: 0 15px;
+  font-family: 'Noto Serif Display';
   font-weight: 600;
   color: #333;
   transition: color 0.3s;
@@ -50,7 +104,7 @@ nav a:hover {
   padding: 2rem;
   margin: 2rem 0;
   border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 3px 10px rgba(247, 246, 246, 0.812);
 }
 
 /* ===== Footer ===== */
@@ -70,4 +124,9 @@ footer {
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+li {
+  padding-left: 1rem;
+  margin-left: 1rem;
 }
