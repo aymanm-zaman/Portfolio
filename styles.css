@@ -42,7 +42,7 @@ header p { font-size: 1.2rem; }
 .hero {
   position: relative;
   height: 100vh;
-  background: url('assets/landing-image.jpg') no-repeat center center/cover;
+  background: url('assets/landing-image.JPG') no-repeat center center/cover;
   color: rgb(255, 255, 255);}
 
 .hero-text {
