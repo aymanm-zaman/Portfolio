@@ -21,9 +21,9 @@ h2 {
 h3 {
   font-family: 'Bodoni Moda', serif;
   font-weight: 500;
-  color: #e40202;
+  color: #4093df;
 }
-section { padding: 2rem 2rem; max-width: 1000px; margin: auto; }
+section { padding: 1rem 1rem; max-width: 1000px; margin: auto; }
 
 /* ===== Header (Hero) ===== */
 header {
@@ -47,7 +47,7 @@ header p { font-size: 1.2rem; }
 
 .hero-text {
   position: absolute;
-  bottom: 2rem;
+  bottom: 3rem;
   left: 1.3rem;
   max-width: 700px;
   text-align: left;
@@ -88,7 +88,7 @@ nav {
   z-index: 100;
 }
 nav a {
-  margin: 0 15px;
+  margin: 0 40px;
   font-family: 'Noto Serif Display';
   font-weight: 600;
   color: #333;
@@ -102,7 +102,7 @@ nav a:hover {
 .project, section ul {
   background: white;
   padding: 2rem;
-  margin: 2rem 0;
+  margin: 1rem 0;
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(247, 246, 246, 0.812);
 }
@@ -129,4 +129,20 @@ footer {
 li {
   padding-left: 1rem;
   margin-left: 1rem;
+}
+
+/* ===== Project Images ===== */
+.project-images {
+  display: flex;
+  gap: 0.8rem; /* space between images */
+  overflow-x: auto; /* allows horizontal scroll */
+  padding-bottom: 0.5rem; /* so scrollbar doesn’t overlap */
+}
+
+.project-images img {
+  flex: 0 0 auto; /* prevents images from shrinking weirdly */
+  width: 450px;   /* set desired uniform width */
+  height: 300px;  /* set desired uniform height */
+  object-fit: cover; /* crop nicely if aspect ratios differ */
+  border-radius: 3px;
 }
