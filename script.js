@@ -18,3 +18,10 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Collapsible "The Engineering" sections
+document.querySelectorAll('.engineering-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.closest('.engineering-collapsible').classList.toggle('open');
+  });
+});

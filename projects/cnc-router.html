@@ -30,10 +30,9 @@
     <header class="project-header">
       <div class="project-meta-row">
         <span class="project-category-tag">Mechanical Design</span>
-        <span class="project-date">Sep &ndash; Dec 2024</span>
+        <span class="project-date">Sep to Dec 2024</span>
       </div>
       <h1 class="project-title">4&times;2 Compact CNC Router</h1>
-      <p class="project-intro">Led a four-member team through the full product design and development process for a compact desktop CNC router, delivering a machine approximately 35% less costly than comparable market alternatives.</p>
     </header>
 
     <div class="project-metrics">
@@ -46,8 +45,8 @@
         <span class="metric-label">Work envelope</span>
       </div>
       <div class="metric">
-        <span class="metric-val">4</span>
-        <span class="metric-label">Team members</span>
+        <span class="metric-val">&lt;$3,500</span>
+        <span class="metric-label">Total design cost</span>
       </div>
     </div>
 
@@ -62,15 +61,15 @@
       </div>
       <div class="detail">
         <span class="detail-label">Course</span>
-        <span class="detail-val">Mechanical Engineering Design</span>
+        <span class="detail-val">MIE243 — Mechanical Engineering Design</span>
       </div>
       <div class="detail">
         <span class="detail-label">Duration</span>
-        <span class="detail-val">Sep &ndash; Dec 2024</span>
+        <span class="detail-val">Sep to Dec 2024</span>
       </div>
       <div class="detail">
         <span class="detail-label">Tools</span>
-        <span class="detail-val">SolidWorks, Excel, McMaster-Carr</span>
+        <span class="detail-val">SolidWorks, Excel, McMaster-Carr, CES Selector</span>
       </div>
     </div>
 
@@ -78,25 +77,39 @@
 
       <div class="content-section">
         <h2 class="content-heading">Overview</h2>
-        <p>The objective was to design a compact desktop CNC router capable of precision milling while significantly undercutting the cost of commercially available alternatives. Most comparable 4&prime;&times;4&prime; machines on the market were substantially more expensive and oversized for small-scale manufacturing and prototyping use cases. Our 4&prime;&times;2&prime; design targeted the same capability at a fraction of the price.</p>
+        <p>The hobbyist CNC router market is growing, but most machines at the 4'&times;4' scale are priced beyond casual users and oversized for typical workshop spaces. The project brief was to design a CNC router that could match the capability of these machines for standard hobbyist materials &mdash; wood, plastics, and light metals &mdash; while being more compact and significantly cheaper.</p>
+        <p>The team targeted a 4'&times;2' work envelope: large enough to accommodate a standard plywood sheet without requiring the footprint or cost of a full-size machine. Engineering specifications included a minimum spindle power of 0.8 kW at 15,000 RPM, 3-axis operation, stepper motor precision of 0.9 to 1.8 degree step angle, and a total cost under $5,000.</p>
       </div>
 
-      <div class="content-section">
-        <h2 class="content-heading">Design Approach</h2>
-        <p>I led the team through concept generation, down-selection, and detailed design. We integrated custom-machined components with off-the-shelf McMaster-Carr hardware to balance cost, lead time, and performance.</p>
-        <p>GD&amp;T and DFM/DFA principles were applied throughout to define fits, tolerances, and surface finish requirements — ensuring parts could be fabricated and assembled without ambiguity. The CAD assembly was fully parametric in SolidWorks, allowing rapid iteration as design constraints evolved.</p>
+      <div class="content-section reflections-section">
+        <h2 class="content-heading">Reflections</h2>
+        <p>This project nearly fell apart three days before the deadline. I had designed a custom chassis from scratch &mdash; and when we ran it through SolidWorks cost estimation, the machining costs came back at roughly four times what we'd budgeted. We had to scrap the frame design and rebuild the entire assembly around McMaster-Carr extrusions and off-the-shelf structural components, essentially starting over with days to go.</p>
+        <p>On top of that, SolidWorks corrupted our assembly files more than once, forcing me to rebuild from scratch. It was the most stressful week of my semester &mdash; but it also taught me more about DFM than any lecture could. You don't forget the cost of custom machining after you've had to redesign around it under a deadline.</p>
+        <p>As team leader, I was making the design calls, running weekly check-ins, setting report deadlines, and doing most of the CAD work myself since one of my teammates was still learning SolidWorks. It was a lot to carry at once, but the experience of owning a project end-to-end &mdash; concept through final deliverable &mdash; is exactly the kind of work I want to keep doing.</p>
       </div>
 
-      <div class="content-section">
-        <h2 class="content-heading">Validation &amp; Deliverables</h2>
-        <p>System validation results and performance trade-off analyses were presented to the Engineering Manager, supported by market benchmarking data, engineering calculations, and SolidWorks simulations.</p>
-        <p>Final deliverables included:</p>
-        <ul>
-          <li>Fully toleranced parametric CAD assembly</li>
-          <li>2D fabrication drawings for all custom components</li>
-          <li>Bill of Materials (BOM) for procurement and cost tracking</li>
-          <li>Engineering presentation with validation results and trade-off analysis</li>
-        </ul>
+      <div class="engineering-collapsible">
+        <button class="engineering-toggle" aria-expanded="false">
+          <span class="engineering-toggle-text">The Engineering</span>
+          <span class="engineering-toggle-icon">+</span>
+        </button>
+        <div class="engineering-body">
+          <div class="engineering-body-inner">
+
+            <div class="content-section">
+              <h2 class="content-heading">Design Approach</h2>
+              <p>I led the team through concept generation, candidate down-selection, and detailed design. Four candidate designs were developed at different price points &mdash; from a ~$1,500 low-cost build using lead screws and a Makita spindle, up to a ~$4,000 high-cost design with servo motors, water-cooled spindle, and belt drives &mdash; to explore the design space systematically.</p>
+              <p>The final design combined a rack-and-pinion system for x-axis actuation (chosen for speed and resolution over lead screws), ball screws for the y and z axes (chosen for precision and low backlash), a RATTM MOTOR air-cooled spindle at 24,000 RPM, and NEMA 23 stepper motors across all axes. The frame was built from aluminium 6061 extrusions for the gantry, with low-carbon steel for the base endplates and sidebars where the gantry load demanded higher strength &mdash; a decision informed by CES Selector material analysis.</p>
+              <p>All custom components were modelled parametrically in SolidWorks. GD&amp;T and DFM/DFA principles were applied to define fits, tolerances, and surface finish requirements. Off-the-shelf McMaster-Carr hardware was integrated throughout to balance cost, lead time, and performance.</p>
+            </div>
+
+            <div class="content-section">
+              <h2 class="content-heading">Validation &amp; Deliverables</h2>
+              <p>System validation results and performance trade-off analyses were presented to the Engineering Manager, supported by market benchmarking, engineering calculations, and SolidWorks simulations. Final deliverables included a fully toleranced parametric CAD assembly, 2D fabrication drawings, a complete Bill of Materials, and an engineering presentation with trade-off analysis.</p>
+            </div>
+
+          </div>
+        </div>
       </div>
 
     </div>

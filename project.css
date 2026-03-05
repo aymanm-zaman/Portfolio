@@ -316,6 +316,70 @@ strong { color: var(--accent); font-weight: 500; }
   min-height: 0;
 }
 
+/* ===== REFLECTIONS ===== */
+.reflections-section {
+  margin-bottom: 3rem;
+}
+
+.reflections-section .content-heading {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ===== COLLAPSIBLE: THE ENGINEERING ===== */
+.engineering-collapsible {
+  border-top: 1px solid var(--border);
+  margin-bottom: 4rem;
+}
+
+.engineering-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.engineering-toggle:hover { opacity: 0.8; }
+
+.engineering-toggle-text {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text-1);
+  letter-spacing: -0.01em;
+}
+
+.engineering-toggle-icon {
+  font-size: 1.4rem;
+  color: var(--text-2);
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+
+.engineering-collapsible.open .engineering-toggle-icon {
+  transform: rotate(45deg);
+}
+
+.engineering-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.engineering-collapsible.open .engineering-body {
+  max-height: 5000px;
+}
+
+.engineering-body-inner {
+  padding: 2rem 0 0;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .project-details-grid { grid-template-columns: repeat(2, 1fr); }

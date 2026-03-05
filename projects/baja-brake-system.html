@@ -30,30 +30,27 @@
     <header class="project-header">
       <div class="project-meta-row">
         <span class="project-category-tag">Mechanical Design</span>
-        <span class="project-date">June 2025 &ndash; Present</span>
+        <span class="project-date">June 2025 to Present</span>
       </div>
       <h1 class="project-title">Brake System &mdash; UT Baja SAE</h1>
-      <p class="project-intro">Co-leading a team of six to design and develop the complete braking system subassembly for the University of Toronto's first-ever Baja SAE competition vehicle.</p>
     </header>
 
     <div class="project-metrics">
       <div class="metric">
-        <span class="metric-val">6</span>
-        <span class="metric-label">Team members</span>
+        <span class="metric-val">~1,760 N</span>
+        <span class="metric-label">Total braking force (derived)</span>
       </div>
       <div class="metric">
-        <span class="metric-val">1st</span>
-        <span class="metric-label">UT Baja vehicle ever built</span>
+        <span class="metric-val">6:1</span>
+        <span class="metric-label">Pedal ratio</span>
       </div>
       <div class="metric">
-        <span class="metric-val">SAE</span>
-        <span class="metric-label">Competition standards</span>
+        <span class="metric-val">60/40</span>
+        <span class="metric-label">Front-rear bias</span>
       </div>
     </div>
 
     <div class="project-hero-img placeholder-img baja" style="background: linear-gradient(135deg, #0d1a2a, #0f2239);">
-      <!-- REPLACE: add a real image here once available -->
-      <!-- <img src="../assets/baja/image_1.jpg" alt="Baja Brake System" /> -->
       <span>UT Baja SAE &mdash; Brake System</span>
     </div>
 
@@ -68,7 +65,7 @@
       </div>
       <div class="detail">
         <span class="detail-label">Duration</span>
-        <span class="detail-val">June 2025 &ndash; Present</span>
+        <span class="detail-val">June 2025 to Present</span>
       </div>
       <div class="detail">
         <span class="detail-label">Tools</span>
@@ -80,26 +77,39 @@
 
       <div class="content-section">
         <h2 class="content-heading">Overview</h2>
-        <p>UT Baja Racing is building the University of Toronto's first-ever Baja SAE competition vehicle. As Co-Lead of the Brake Team, I'm responsible for the complete braking system subassembly — from initial requirements derivation through detailed design and system integration.</p>
-        <p>The system must satisfy Baja SAE competition regulations while performing reliably under the dynamic loads and thermal conditions of off-road racing.</p>
+        <p>UT Baja Racing is a new team at the University of Toronto, building the school's first-ever Baja SAE competition vehicle. As Co-Lead of the Brake Team, I'm responsible for the complete braking system subassembly &mdash; from deriving performance requirements through detailed design and integration with the rest of the vehicle.</p>
+        <p>There was no prior vehicle, no design files from previous years, and no institutional knowledge to reference. Every requirement, calculation, and design decision had to be built from scratch.</p>
       </div>
 
-      <div class="content-section">
-        <h2 class="content-heading">Analysis &amp; Design</h2>
-        <p>Performance requirements were derived through analytical calculations covering:</p>
-        <ul>
-          <li>Static structural loads on brake pedal, caliper mounts, and rotor</li>
-          <li>Dynamic braking force distribution front-to-rear under deceleration</li>
-          <li>Torsional stiffness requirements for the pedal assembly</li>
-          <li>Thermal performance of rotor and caliper under sustained braking</li>
-        </ul>
-        <p>All calculations were performed in Microsoft Excel, benchmarked against prior SAE Baja competition data and published research literature to validate assumptions and system specifications.</p>
+      <div class="content-section reflections-section">
+        <h2 class="content-heading">Reflections</h2>
+        <p>Ali and I started this project without a team, without a baseline vehicle, and &mdash; honestly &mdash; without driver's licences. We were figuring it out as we went: watching YouTube videos, Googling "how to design a race car braking system," and working through technical manuals from the 1980s to derive equations for a car that had never existed.</p>
+        <p>The hardest part of co-leading isn't the engineering &mdash; it's that there's nobody above you to tell you what to do. Every assumption, every parameter, every decision about what's good enough had to come from us. The team has grown since then, but those early months of just two people compiling a spreadsheet from scratch taught me more about engineering judgment than any course has.</p>
       </div>
 
-      <div class="content-section">
-        <h2 class="content-heading">CAD &amp; Integration</h2>
-        <p>The brake pedal assembly is being designed in SolidWorks based on the geometric and load constraints derived analytically. Component selection (calipers, rotors, master cylinder, hardware) is driven by the calculated specifications and regulatory requirements.</p>
-        <p>I coordinate internal team meetings and task assignments, and collaborate externally with other subsystem leads — chassis, suspension, drivetrain — to ensure smooth system integration across the full vehicle.</p>
+      <div class="engineering-collapsible">
+        <button class="engineering-toggle" aria-expanded="false">
+          <span class="engineering-toggle-text">The Engineering</span>
+          <span class="engineering-toggle-icon">+</span>
+        </button>
+        <div class="engineering-body">
+          <div class="engineering-body-inner">
+
+            <div class="content-section">
+              <h2 class="content-heading">Analysis &amp; Design</h2>
+              <p>Performance requirements were derived analytically in Microsoft Excel, cross-referenced against two independent calculation methods &mdash; one based on an IJRET publication, the other on a Northern Arizona University Baja team report &mdash; to validate assumptions across the board.</p>
+              <p>Starting from an estimated vehicle mass of 300 kg at 17.78 m/s, the spreadsheet works through static and dynamic axle loads, rate of retardation, braking torque per wheel, and rotor pad forces. The key system-level outputs: a total required ground braking force of approximately 1,760 N, distributed 60/40 front-to-rear, with a 6:1 pedal ratio producing 1,800 N of master cylinder force from a 300 N pedal input.</p>
+              <p>Caliper bore diameters were then sized from the required clamping force and true brake line pressure &mdash; front bore at approximately 25.8 mm, rear at approximately 27.0 mm &mdash; closing the loop from driver input through to wheel-level braking force.</p>
+            </div>
+
+            <div class="content-section">
+              <h2 class="content-heading">CAD &amp; Integration</h2>
+              <p>With the analytical foundation complete, the team encountered a budget constraint: building the vehicle from scratch was no longer feasible. The decision was made to acquire a used buggy and retrofit it, which shifted the braking system work from clean-sheet design to adapting calculated specs against existing vehicle geometry.</p>
+              <p>I'm currently modelling the braking system in SolidWorks, working through component placement and integration with the donor vehicle's frame. Coordination continues with chassis, suspension, and drivetrain leads to ensure system-level compatibility.</p>
+            </div>
+
+          </div>
+        </div>
       </div>
 
     </div>

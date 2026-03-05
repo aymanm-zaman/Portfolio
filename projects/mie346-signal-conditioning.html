@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LM324N Signal Conditioning PCB &mdash; Ayman Marzuq Zaman</title>
+  <title>Adjustable DC Power Supply &mdash; Ayman Marzuq Zaman</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -32,8 +32,7 @@
         <span class="project-category-tag">Electronics &amp; Mechatronics</span>
         <span class="project-date">Winter 2025</span>
       </div>
-      <h1 class="project-title">LM324N Signal Conditioning PCB &mdash; MIE346</h1>
-      <p class="project-intro">Designed and laid out a two-layer PCB for a multi-stage op-amp signal conditioning circuit, taking the design from schematic capture through KiCad layout, DRC, and Gerber generation. Built in collaboration with Sayali (class of 2T6).</p>
+      <h1 class="project-title">Adjustable DC Power Supply &mdash; MIE346</h1>
     </header>
 
     <div class="project-metrics">
@@ -46,8 +45,8 @@
         <span class="metric-label">Copper layers</span>
       </div>
       <div class="metric">
-        <span class="metric-val">15+</span>
-        <span class="metric-label">Passive components</span>
+        <span class="metric-val">0 to 3A</span>
+        <span class="metric-label">Current sensing range</span>
       </div>
     </div>
 
@@ -89,35 +88,38 @@
     <div class="project-content">
 
       <div class="content-section">
-        <h2 class="content-heading">Circuit Overview</h2>
-        <p>The circuit conditions two signals — a current sense input (<code>ISENSE</code>) and a reference voltage — into two calibrated output channels (<code>VOUT1</code> and <code>VOUT2</code>). Current is measured via R15, a 0.1&thinsp;&Omega; shunt resistor, giving a voltage proportional to current. All four op-amp sections of the LM324N are used across two parallel processing chains.</p>
+        <h2 class="content-heading">Overview</h2>
+        <p>MIE346 runs a semester-long design assignment series in which students design and build a low-cost adjustable DC lab power supply. The supply takes 19V DC input from a laptop adapter and produces an adjustable 0 to 15V output with a 0 to 3A current limit, regulated by a switching regulator and STM32 microcontroller.</p>
+        <p>My portion of the design focused on the current sense amplifier and filter &mdash; the analog sub-circuit responsible for measuring output current via a 0.1&thinsp;&Omega; shunt resistor and conditioning the signal into a 0.25 to 3.3V range readable by the microcontroller's ADC. This is the feedback path that enables the supply's current limiting behaviour.</p>
       </div>
 
-      <div class="content-section">
-        <h2 class="content-heading">Signal Chain</h2>
-        <p>The <strong>VOUT1 chain</strong> (IC1A &rarr; IC1B) handles current sense amplification. IC1A acts as a differential amplifier summing the shunt signal with a voltage reference set by the R2/R3/R4/R5 divider. IC1B applies a second gain stage with frequency roll-off via the C4 feedback capacitor, producing a filtered output on VOUT1.</p>
-        <p>The <strong>VOUT2 chain</strong> (IC1C &rarr; IC1D) processes the VOUT2 reference signal. IC1C applies inverting gain with R9 (100k) feedback; IC1D provides additional scaling through R11 (13k) and R12 (6.8k). Both chains use small capacitors (C1, C2, C5, C6) for high-frequency noise rejection.</p>
+      <div class="content-section reflections-section">
+        <h2 class="content-heading">Reflections</h2>
+        <p>This was my first time designing a PCB &mdash; and the first time in almost ten years of schooling that circuits felt useful. From grade school onwards, finding voltages and currents was always an abstract exercise. MIE346 changed that completely. You put a signal in, you manipulate it with components you chose, and you get a deterministic output. Watching that happen in the lab &mdash; in real time, matching the math and the simulation &mdash; was genuinely exciting.</p>
+        <p>KiCad was a challenge, particularly around component placement and trace routing on a board this dense. Soldering was new too, and I found both surprisingly enjoyable. This project cemented an interest in integrated circuits and analog design that I didn't expect coming into the course.</p>
       </div>
 
-      <div class="content-section">
-        <h2 class="content-heading">PCB Design</h2>
-        <p>The two-layer board was laid out in KiCad. The top copper layer (red) carries signal traces; the bottom layer (blue) handles return paths and cross-unders. Key layout decisions included:</p>
-        <ul>
-          <li>Keeping signal traces short between the connector (JP1) and the first op-amp stage to minimise parasitic capacitance</li>
-          <li>Placing decoupling capacitors (C3–C6) close to IC power pins</li>
-          <li>Routing the GND plane on the bottom layer for a clean return path</li>
-          <li>Ensuring adequate copper clearance for the +19V supply traces</li>
-        </ul>
-        <p>The design passed KiCad's DRC checks and Gerber files were generated for fabrication.</p>
-      </div>
+      <div class="engineering-collapsible">
+        <button class="engineering-toggle" aria-expanded="false">
+          <span class="engineering-toggle-text">The Engineering</span>
+          <span class="engineering-toggle-icon">+</span>
+        </button>
+        <div class="engineering-body">
+          <div class="engineering-body-inner">
 
-      <div class="content-section">
-        <h2 class="content-heading">Component Selection</h2>
-        <ul>
-          <li><strong>LM324N</strong> — chosen for its single-supply operation (works from +3V to +32V), four op-amps in one package, and availability</li>
-          <li><strong>R15 = 0.1&thinsp;&Omega;</strong> — low-value shunt minimises power loss while producing a measurable voltage drop at the expected current range</li>
-          <li>Resistor values in the gain networks were calculated from the required transfer function, then selected to the nearest E96 standard values</li>
-        </ul>
+            <div class="content-section">
+              <h2 class="content-heading">Circuit Design</h2>
+              <p>The circuit uses all four op-amp sections of the LM324N across two parallel signal chains. The VOUT1 chain (IC1A to IC1B) handles current sense amplification: IC1A acts as a differential amplifier summing the shunt voltage with a reference set by a resistor divider, and IC1B applies a second gain stage with a feedback capacitor for frequency roll-off.</p>
+              <p>The VOUT2 chain (IC1C to IC1D) processes a reference voltage signal through inverting gain stages with additional scaling. Both chains use small capacitors for high-frequency noise rejection. Resistor values in the gain networks were calculated from the required transfer functions, then selected to the nearest E96 standard values. The design was simulated in LTspice before layout.</p>
+            </div>
+
+            <div class="content-section">
+              <h2 class="content-heading">PCB Layout</h2>
+              <p>The two-layer board was laid out in KiCad. The top copper layer carries signal traces; the bottom layer handles return paths and cross-unders. Layout priorities included keeping signal traces short between the input connector and the first op-amp stage to minimise parasitic capacitance, placing decoupling capacitors close to IC power pins, routing a clean ground return on the bottom layer, and maintaining adequate copper clearance for the +19V supply traces. The design passed DRC and Gerber files were generated for fabrication.</p>
+            </div>
+
+          </div>
+        </div>
       </div>
 
     </div>

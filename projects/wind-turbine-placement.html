@@ -33,7 +33,6 @@
         <span class="project-date">Winter 2024</span>
       </div>
       <h1 class="project-title">Wind Turbine Placement</h1>
-      <p class="project-intro">Object-oriented Python system for modelling and validating wind turbine placements in a 2D field, using circle geometry and Euclidean overlap detection to identify placement conflicts from CSV data.</p>
     </header>
 
     <div class="project-details-grid">
@@ -59,23 +58,42 @@
 
       <div class="content-section">
         <h2 class="content-heading">Overview</h2>
-        <p>The goal was to build a system for checking whether proposed wind turbine locations conflict with each other. Each turbine occupies a circular exclusion zone, and two turbines are considered in conflict if their zones overlap. The system reads turbine placements from a CSV file, constructs objects for each, and reports the number of invalid placements.</p>
+        <p>Each wind turbine occupies a circular exclusion zone. Two turbines conflict if their zones overlap. The system reads proposed placements from a CSV file, constructs objects for each turbine, and reports the count of invalid placements.</p>
       </div>
 
-      <div class="content-section">
-        <h2 class="content-heading">Implementation</h2>
-        <p>Three classes were implemented in a hierarchy: <code>Point</code> represents a 2D coordinate, <code>Circle</code> models a turbine's exclusion zone and implements overlap detection using the Euclidean distance formula, and <code>WindTurbine</code> wraps a <code>Circle</code> and manages a list of conflicting turbines.</p>
-        <p>Overlap between two circles is detected when the distance between centres is less than the sum of their radii — a clean closed-form condition that avoids any edge cases.</p>
-      </div>
+      <div class="engineering-collapsible">
+        <button class="engineering-toggle" aria-expanded="false">
+          <span class="engineering-toggle-text">The Engineering</span>
+          <span class="engineering-toggle-icon">+</span>
+        </button>
+        <div class="engineering-body">
+          <div class="engineering-body-inner">
 
-      <div class="content-code">
-        <div class="code-bar">
-          <span class="code-dot"></span>
-          <span class="code-dot"></span>
-          <span class="code-dot"></span>
-          <span class="code-filename">lab8.py</span>
+            <div class="content-section">
+              <h2 class="content-heading">Implementation</h2>
+              <p>Three classes form a hierarchy: <code>Point</code> represents a 2D coordinate, <code>Circle</code> models a turbine's exclusion zone and implements overlap detection using the Euclidean distance formula, and <code>WindTurbine</code> wraps a <code>Circle</code> with an ID and a list of conflicting neighbours.</p>
+              <p>Overlap is detected when the distance between two circle centres is less than the sum of their radii. The pairwise check divides the total count by two to avoid double-counting symmetric overlaps.</p>
+            </div>
+
+            <div class="content-section">
+              <h2 class="content-heading">Results</h2>
+              <p>The system correctly identifies all overlapping turbine pairs from the input data and returns an accurate count of invalid placements.</p>
+            </div>
+
+          </div>
         </div>
-        <pre class="content-code-pre"><code><span class="kw">class</span> <span class="nm">WindTurbine</span>:
+      </div>
+
+    </div>
+
+    <div class="content-code">
+      <div class="code-bar">
+        <span class="code-dot"></span>
+        <span class="code-dot"></span>
+        <span class="code-dot"></span>
+        <span class="code-filename">lab8.py</span>
+      </div>
+      <pre class="content-code-pre"><code><span class="kw">class</span> <span class="nm">WindTurbine</span>:
     <span class="kw">def</span> <span class="fn">__init__</span>(self, id_number, x, y, radius):
         self.id_number = id_number
         self.placement = <span class="nm">Circle</span>(x, y, radius)
@@ -94,13 +112,6 @@
             <span class="kw">if</span> i != j <span class="kw">and</span> turbines[i].overlap(turbines[j]):
                 invalid += 1
     <span class="kw">return</span> int(invalid / 2)</code></pre>
-      </div>
-
-      <div class="content-section">
-        <h2 class="content-heading">Results</h2>
-        <p>The system correctly identifies overlapping turbine pairs from CSV input, returning an accurate count of invalid placements. The pairwise check divides by two to avoid double-counting symmetric overlaps.</p>
-      </div>
-
     </div>
 
     <div class="project-footer-nav">

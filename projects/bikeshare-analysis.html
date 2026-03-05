@@ -33,7 +33,6 @@
         <span class="project-date">Winter 2024</span>
       </div>
       <h1 class="project-title">Bike Share Data Analysis</h1>
-      <p class="project-intro">Pandas-based data analysis pipeline for the Toronto Bike Share dataset. Aggregates multi-file CSV trip records, ranks stations by usage volume, and computes average trip duration segmented by membership type and quarter.</p>
     </header>
 
     <div class="project-details-grid">
@@ -51,7 +50,7 @@
       </div>
       <div class="detail">
         <span class="detail-label">Concepts</span>
-        <span class="detail-label">Data wrangling, Grouping, Filtering</span>
+        <span class="detail-val">Data wrangling, grouping, filtering</span>
       </div>
     </div>
 
@@ -59,27 +58,41 @@
 
       <div class="content-section">
         <h2 class="content-heading">Overview</h2>
-        <p>The dataset consists of quarterly Toronto Bike Share trip records spread across multiple CSV files, each named with embedded year and quarter metadata. The task was to build a pipeline that could load, parse, merge, and analyse this data — producing clean DataFrames for three distinct analysis tasks.</p>
+        <p>The dataset consists of quarterly Toronto Bike Share trip records spread across multiple CSV files, each with year and quarter metadata embedded in the filename. The task was to build a pipeline that could load, parse, merge, and analyse this data into clean DataFrames for three analysis tasks.</p>
       </div>
 
-      <div class="content-section">
-        <h2 class="content-heading">Implementation</h2>
-        <p>Three functions were implemented:</p>
-        <ul>
-          <li><strong>create_bikeshare_df</strong> — loads all CSVs, parses year and quarter from each filename using string indexing, appends them as columns, and concatenates into a single unified DataFrame.</li>
-          <li><strong>rank_station_usage</strong> — filters by year and quarter, counts departures and returns per station using <code>value_counts()</code>, combines them, and sorts by total activity descending.</li>
-          <li><strong>average_trip_duration_by_membership</strong> — iterates over all year/quarter combinations, computes mean trip duration separately for <code>Member</code> and <code>Casual</code> user types, and returns a summary DataFrame.</li>
-        </ul>
-      </div>
+      <div class="engineering-collapsible">
+        <button class="engineering-toggle" aria-expanded="false">
+          <span class="engineering-toggle-text">The Engineering</span>
+          <span class="engineering-toggle-icon">+</span>
+        </button>
+        <div class="engineering-body">
+          <div class="engineering-body-inner">
 
-      <div class="content-code">
-        <div class="code-bar">
-          <span class="code-dot"></span>
-          <span class="code-dot"></span>
-          <span class="code-dot"></span>
-          <span class="code-filename">lab9.py</span>
+            <div class="content-section">
+              <h2 class="content-heading">Implementation</h2>
+              <p>Three functions were implemented: <code>create_bikeshare_df</code> loads all CSVs, parses year and quarter from filenames, and concatenates into a single DataFrame. <code>rank_station_usage</code> filters by year and quarter, counts departures and returns per station, and sorts by total activity. <code>average_trip_duration_by_membership</code> computes mean trip duration separately for Member and Casual users across all year/quarter combinations.</p>
+            </div>
+
+            <div class="content-section">
+              <h2 class="content-heading">Results</h2>
+              <p>All functions produced correctly structured DataFrames. The station ranking surfaces the busiest locations by combined activity, and the membership analysis shows consistent differences in average trip length between member and casual users across quarters.</p>
+            </div>
+
+          </div>
         </div>
-        <pre class="content-code-pre"><code><span class="kw">def</span> <span class="fn">create_bikeshare_df</span>(filenames):
+      </div>
+
+    </div>
+
+    <div class="content-code">
+      <div class="code-bar">
+        <span class="code-dot"></span>
+        <span class="code-dot"></span>
+        <span class="code-dot"></span>
+        <span class="code-filename">lab9.py</span>
+      </div>
+      <pre class="content-code-pre"><code><span class="kw">def</span> <span class="fn">create_bikeshare_df</span>(filenames):
     bike = []
     <span class="kw">for</span> file <span class="kw">in</span> filenames:
         bike_data = pd.read_csv(file)
@@ -108,13 +121,6 @@
         by=[<span class="st">"combined_departure_return_count"</span>],
         ascending=[<span class="kw">False</span>]
     )</code></pre>
-      </div>
-
-      <div class="content-section">
-        <h2 class="content-heading">Results</h2>
-        <p>All three functions produced correctly structured DataFrames. The station ranking correctly surfaces the busiest locations by combined departure and return volume, while the membership duration analysis shows consistent differences in average trip length between members and casual users across all quarters.</p>
-      </div>
-
     </div>
 
     <div class="project-footer-nav">
