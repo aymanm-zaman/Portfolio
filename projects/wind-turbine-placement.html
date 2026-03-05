@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wind Turbine Placement &mdash; Ayman Marzuq Zaman</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../project.css" />
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">AMZ</a>
+      <ul class="nav-links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#projects">Work</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="project-main">
+
+    <a href="../index.html#projects" class="back-link">&larr; All Projects</a>
+
+    <header class="project-header">
+      <div class="project-meta-row">
+        <span class="project-category-tag">Programming</span>
+        <span class="project-date">Winter 2024</span>
+      </div>
+      <h1 class="project-title">Wind Turbine Placement</h1>
+      <p class="project-intro">Object-oriented Python system for modelling and validating wind turbine placements in a 2D field, using circle geometry and Euclidean overlap detection to identify placement conflicts from CSV data.</p>
+    </header>
+
+    <div class="project-details-grid">
+      <div class="detail">
+        <span class="detail-label">Course</span>
+        <span class="detail-val">APS106 — Fundamentals of Computer Programming</span>
+      </div>
+      <div class="detail">
+        <span class="detail-label">Language</span>
+        <span class="detail-val">Python</span>
+      </div>
+      <div class="detail">
+        <span class="detail-label">Libraries</span>
+        <span class="detail-val">csv (stdlib)</span>
+      </div>
+      <div class="detail">
+        <span class="detail-label">Concepts</span>
+        <span class="detail-val">OOP, Geometry, File I/O</span>
+      </div>
+    </div>
+
+    <div class="project-content">
+
+      <div class="content-section">
+        <h2 class="content-heading">Overview</h2>
+        <p>The goal was to build a system for checking whether proposed wind turbine locations conflict with each other. Each turbine occupies a circular exclusion zone, and two turbines are considered in conflict if their zones overlap. The system reads turbine placements from a CSV file, constructs objects for each, and reports the number of invalid placements.</p>
+      </div>
+
+      <div class="content-section">
+        <h2 class="content-heading">Implementation</h2>
+        <p>Three classes were implemented in a hierarchy: <code>Point</code> represents a 2D coordinate, <code>Circle</code> models a turbine's exclusion zone and implements overlap detection using the Euclidean distance formula, and <code>WindTurbine</code> wraps a <code>Circle</code> and manages a list of conflicting turbines.</p>
+        <p>Overlap between two circles is detected when the distance between centres is less than the sum of their radii — a clean closed-form condition that avoids any edge cases.</p>
+      </div>
+
+      <div class="content-code">
+        <div class="code-bar">
+          <span class="code-dot"></span>
+          <span class="code-dot"></span>
+          <span class="code-dot"></span>
+          <span class="code-filename">lab8.py</span>
+        </div>
+        <pre class="content-code-pre"><code><span class="kw">class</span> <span class="nm">WindTurbine</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(self, id_number, x, y, radius):
+        self.id_number = id_number
+        self.placement = <span class="nm">Circle</span>(x, y, radius)
+        self.overlapping_turbines = []
+
+    <span class="kw">def</span> <span class="fn">validate_placement</span>(self, turbines):
+        <span class="kw">for</span> turbine <span class="kw">in</span> turbines:
+            <span class="kw">if</span> self.id_number != turbine.id_number:
+                <span class="kw">if</span> self.overlap(turbine):
+                    self.overlapping_turbines.append(turbine)
+
+<span class="kw">def</span> <span class="fn">check_turbine_placements</span>(turbines):
+    invalid = 0
+    <span class="kw">for</span> i <span class="kw">in</span> range(len(turbines)):
+        <span class="kw">for</span> j <span class="kw">in</span> range(len(turbines)):
+            <span class="kw">if</span> i != j <span class="kw">and</span> turbines[i].overlap(turbines[j]):
+                invalid += 1
+    <span class="kw">return</span> int(invalid / 2)</code></pre>
+      </div>
+
+      <div class="content-section">
+        <h2 class="content-heading">Results</h2>
+        <p>The system correctly identifies overlapping turbine pairs from CSV input, returning an accurate count of invalid placements. The pairwise check divides by two to avoid double-counting symmetric overlaps.</p>
+      </div>
+
+    </div>
+
+    <div class="project-footer-nav">
+      <a href="../index.html#projects" class="project-back-link">&larr; Back to Projects</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ayman Marzuq Zaman</p>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,97 +1,327 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <title>Ayman Zaman — Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayman Marzuq Zaman — Mechanical Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-   <header class="hero">
-        <div class="hero-text">
-            <h1>Ayman Marzuq Zaman</h1>
-            <p>Mechanical Engineer | University of Toronto</p>
-            <p>
-                <a href="mailto:zaman.aymanm@gmail.com">zaman.aymanm@gmail.com</a> | 
-                <a href="assets/Ayman_Zaman_2025.pdf" download>Resume</a> 
-            </p>
-        </div>
-    </header>
 
-  <!-- ===== Navigation ===== -->
-  <nav>
-    <a href="#about_me">About Me</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">AMZ</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <!-- ===== Sections ===== -->
-  <section id="about_me">
-    <h2>About Me</h2>
-    <ul>
-    <p>I am an undergraduate Mechanical Engineering student at the University of Toronto, pursuing a double minor in Robotics & Mechatronics and Engineering Business. I am passionate about automated manufacturing and interested in applying my skills to innovation in the automobile and aerospace industries. What drives me is finding smarter, more efficient ways to turn designs into real, functional parts.
-    <br> <br> Some facts about me:
-    </p>
-    
-    <li>From Dhaka, Bangladesh</li>
-    <li>Lived in Saskatoon, Saskatchewan before Toronto</li>
-    <li>3rd Year Mechanical Engineering student at the University of Toronto</li>
-    <li>Looking to join the Mechanical Design and Mechatronics streams</li>
-    <li>Minor in Engineering Business and Robotics & Mechatronics</li>
-    <li>Looking to work in the Aerospace/Automobile industry</li>
-    </ul>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>CNC Router</h3>
-      <div class="project-content">
-        <div class="project-images">
-          <img src="assets/cnc_router/image_1.jpg" alt="CNC Router Project Image 1">
-          <img src="assets/cnc_router/image_2.jpg" alt="CNC Router Project Image 2">
-        </div>
-        <p>Designed and built a CNC Router for precision manufacturing and rapid prototyping.</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-gradient"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Mechanical Engineer &middot; University of Toronto</p>
+      <h1 class="hero-name">Ayman<br>Marzuq Zaman</h1>
+      <p class="hero-sub">Designing systems where precision meets purpose.</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary">View Work</a>
+        <a href="assets/Ayman_Zaman_2025.pdf" class="btn btn-outline" target="_blank" rel="noopener">Resume</a>
       </div>
     </div>
-      
   </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-        <h3>Technical Skills</h3>
-        <li>SolidWorks (CSWA)</li>
-        <li>Python, C, MATLAB</li>
-        <li>Machining & Blueprint Reading</li>
-    </ul>
-    <ul>
-        <h3>Core Competencies</h3>
-        <li>SolidWorks (CSWA)</li>
-        <li>Python, C, MATLAB</li>
-        <li>Machining & Blueprint Reading</li>
-    </ul>
+  <!-- ABOUT -->
+  <section id="about" class="section section-alt">
+    <div class="section-inner about-layout">
+      <div class="about-bio reveal">
+        <span class="section-label">About</span>
+        <p class="about-text">Third-year Mechanical Engineering student at the University of Toronto, with a minor in Robotics &amp; Mechatronics and Engineering Business. Dean's List Scholar. I co-lead a brake system team for UT's first Baja SAE vehicle, do FEA-driven structural work for the Formula team, and work as a Machine Shop Assistant maintaining and repairing CNC equipment.</p>
+        <p class="about-text">Interested in mechanical design, aerospace, and automotive applications. Open to PEY co-op opportunities.</p>
+        <a href="assets/Ayman_Zaman_2025.pdf" class="resume-link" target="_blank" rel="noopener">Download Resume &rarr;</a>
+      </div>
+      <div class="about-stats reveal">
+        <div class="stat">
+          <span class="stat-num">3rd</span>
+          <span class="stat-label">Year</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">Dean's</span>
+          <span class="stat-label">List</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">2</span>
+          <span class="stat-label">Race Teams</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">30+</span>
+          <span class="stat-label">Shop Hours</span>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <ul>
-    <p>Email: <a href="mailto:zaman.aymanm@gmail.com">zaman.aymanm@gmail.com</a></p>
-    <p>Phone: +1 (639) 916-2302</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/ayman-mzaman017/">Ayman Marzuq Zaman</a> </p>
-    </ul>
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="section-inner">
+      <span class="section-label">Work</span>
+
+      <!-- 01 / Mechanical Design -->
+      <div class="category">
+        <div class="category-header reveal">
+          <span class="category-num">01</span>
+          <span class="category-slash">/</span>
+          <h2 class="category-title">Mechanical Design</h2>
+        </div>
+        <div class="cards-grid">
+
+          <a href="projects/baja-brake-system.html" class="project-card reveal">
+            <div class="card-img-wrap">
+              <div class="card-img-placeholder baja"><span>UT Baja SAE</span></div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Brake System &mdash; UT Baja SAE</h3>
+              <p class="card-desc">Complete braking system design for UT's first-ever Baja competition vehicle, leading a team of six.</p>
+              <span class="card-link">View Project &rarr;</span>
+            </div>
+          </a>
+
+          <a href="projects/formula-rear-wing.html" class="project-card reveal">
+            <div class="card-img-wrap">
+              <div class="card-img-placeholder formula"><span>UT Formula SAE</span></div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Rear Wing Mounts &mdash; UT Formula SAE</h3>
+              <p class="card-desc">FEA-optimised wing mounting structure achieving 12% weight reduction on the UT25 vehicle.</p>
+              <span class="card-link">View Project &rarr;</span>
+            </div>
+          </a>
+
+          <a href="projects/cnc-router.html" class="project-card reveal">
+            <div class="card-img-wrap">
+              <img src="assets/cnc_router/image_1.jpg" alt="CNC Router" class="card-img" />
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">4&times;2 Compact CNC Router</h3>
+              <p class="card-desc">Team-led CNC router design, ~35% more cost-effective than comparable market alternatives.</p>
+              <span class="card-link">View Project &rarr;</span>
+            </div>
+          </a>
+
+          <!-- PLACEHOLDER: copy this card, update href, image/placeholder class, title, desc -->
+          <a href="projects/template.html" class="project-card reveal placeholder">
+            <div class="card-img-wrap">
+              <div class="card-img-placeholder mech"></div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Project Title</h3>
+              <p class="card-desc">Brief one or two sentence description of what you built and what you achieved.</p>
+              <span class="card-link">View Project &rarr;</span>
+            </div>
+          </a>
+
+          <!-- PLACEHOLDER -->
+          <a href="projects/template.html" class="project-card reveal placeholder">
+            <div class="card-img-wrap">
+              <div class="card-img-placeholder mech"></div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Project Title</h3>
+              <p class="card-desc">Brief one or two sentence description of what you built and what you achieved.</p>
+              <span class="card-link">View Project &rarr;</span>
+            </div>
+          </a>
+
+          <!-- PLACEHOLDER -->
+          <a href="projects/template.html" class="project-card reveal placeholder">
+            <div class="card-img-wrap">
+              <div class="card-img-placeholder mech"></div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Project Title</h3>
+              <p class="card-desc">Brief one or two sentence description of what you built and what you achieved.</p>
+              <span class="card-link">View Project &rarr;</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- 02 / Programming -->
+      <div class="category">
+        <div class="category-header reveal">
+          <span class="category-num">02</span>
+          <span class="category-slash">/</span>
+          <h2 class="category-title">Programming</h2>
+        </div>
+        <div class="cards-grid">
+
+          <a href="projects/wind-turbine-placement.html" class="project-card project-card--code reveal">
+            <div class="card-code-wrap">
+              <div class="code-bar">
+                <span class="code-dot"></span>
+                <span class="code-dot"></span>
+                <span class="code-dot"></span>
+                <span class="code-filename">lab8.py</span>
+              </div>
+              <pre class="code-snippet"><code><span class="kw">class</span> <span class="nm">Circle</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(self, x, y, radius):
+        self.centre = <span class="nm">Point</span>(x, y)
+        self.radius = radius
+
+    <span class="kw">def</span> <span class="fn">overlap</span>(self, circB):
+        d = ((self.centre.x - circB.centre.x)**2
+           + (self.centre.y - circB.centre.y)**2
+           ) ** 0.5
+        <span class="kw">return</span> d &lt; (self.radius + circB.radius)</code></pre>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Wind Turbine Placement</h3>
+              <p class="card-desc">OOP system in Python for validating wind turbine placements using 2D circle geometry and overlap detection.</p>
+              <span class="card-link">View Project &rarr;</span>
+            </div>
+          </a>
+
+          <a href="projects/bikeshare-analysis.html" class="project-card project-card--code reveal">
+            <div class="card-code-wrap">
+              <div class="code-bar">
+                <span class="code-dot"></span>
+                <span class="code-dot"></span>
+                <span class="code-dot"></span>
+                <span class="code-filename">lab9.py</span>
+              </div>
+              <pre class="code-snippet"><code><span class="kw">def</span> <span class="fn">rank_station_usage</span>(df, year, quarter):
+    new_df = df[
+        (df[<span class="st">"year"</span>] == year) &amp;
+        (df[<span class="st">"quarter"</span>] == quarter)
+    ]
+    usage[<span class="st">"departure_count"</span>] = (
+        new_df[<span class="st">"from_station_name"</span>]
+            .value_counts()
+    )
+    <span class="kw">return</span> usage.sort_values(
+        by=[<span class="st">"combined_departure_return_count"</span>],
+        ascending=[<span class="kw">False</span>]
+    )</code></pre>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Bike Share Data Analysis</h3>
+              <p class="card-desc">Pandas pipeline analysing Toronto bike share trip data — station rankings, membership trends, and quarterly breakdowns.</p>
+              <span class="card-link">View Project &rarr;</span>
+            </div>
+          </a>
+
+          <!-- PLACEHOLDER -->
+          <a href="projects/template.html" class="project-card reveal placeholder">
+            <div class="card-img-wrap">
+              <div class="card-img-placeholder prog"></div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Project Title</h3>
+              <p class="card-desc">Brief one or two sentence description of what you built and what you achieved.</p>
+              <span class="card-link">View Project &rarr;</span>
+            </div>
+          </a>
+
+          <!-- PLACEHOLDER -->
+          <a href="projects/template.html" class="project-card reveal placeholder">
+            <div class="card-img-wrap">
+              <div class="card-img-placeholder prog"></div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Project Title</h3>
+              <p class="card-desc">Brief one or two sentence description of what you built and what you achieved.</p>
+              <span class="card-link">View Project &rarr;</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- 03 / Electronics & Mechatronics -->
+      <div class="category">
+        <div class="category-header reveal">
+          <span class="category-num">03</span>
+          <span class="category-slash">/</span>
+          <h2 class="category-title">Electronics &amp; Mechatronics</h2>
+        </div>
+        <div class="cards-grid">
+
+          <!-- PLACEHOLDER -->
+          <a href="projects/template.html" class="project-card reveal placeholder">
+            <div class="card-img-wrap">
+              <div class="card-img-placeholder elec"></div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Project Title</h3>
+              <p class="card-desc">Brief one or two sentence description of what you built and what you achieved.</p>
+              <span class="card-link">View Project &rarr;</span>
+            </div>
+          </a>
+
+          <!-- PLACEHOLDER -->
+          <a href="projects/template.html" class="project-card reveal placeholder">
+            <div class="card-img-wrap">
+              <div class="card-img-placeholder elec"></div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Project Title</h3>
+              <p class="card-desc">Brief one or two sentence description of what you built and what you achieved.</p>
+              <span class="card-link">View Project &rarr;</span>
+            </div>
+          </a>
+
+          <!-- PLACEHOLDER -->
+          <a href="projects/template.html" class="project-card reveal placeholder">
+            <div class="card-img-wrap">
+              <div class="card-img-placeholder elec"></div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Project Title</h3>
+              <p class="card-desc">Brief one or two sentence description of what you built and what you achieved.</p>
+              <span class="card-link">View Project &rarr;</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
   </section>
 
-  <!-- ===== Footer ===== -->
+  <!-- CONTACT -->
+  <section id="contact" class="section section-alt">
+    <div class="section-inner contact-inner">
+      <span class="section-label">Contact</span>
+      <h2 class="section-heading">Let's connect.</h2>
+      <p class="contact-sub">Open to PEY co-op, internships, and design collaborations.</p>
+      <div class="contact-links reveal">
+        <a href="mailto:aymanm.zaman@mail.utoronto.ca" class="contact-link">
+          <span class="contact-link-label">Email</span>
+          <span class="contact-link-value">aymanm.zaman@mail.utoronto.ca</span>
+        </a>
+        <a href="tel:+16399162302" class="contact-link">
+          <span class="contact-link-label">Phone</span>
+          <span class="contact-link-value">+1 (639) 916-2302</span>
+        </a>
+        <a href="https://linkedin.com/in/ayman-mzaman017" class="contact-link" target="_blank" rel="noopener">
+          <span class="contact-link-label">LinkedIn</span>
+          <span class="contact-link-value">ayman-mzaman017</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <p>© 2025 Ayman Zaman | Portfolio Website</p>
+    <p>&copy; 2025 Ayman Marzuq Zaman</p>
   </footer>
-  <script src="script.js" defer></script>
+
+  <script src="script.js"></script>
 </body>
 </html>

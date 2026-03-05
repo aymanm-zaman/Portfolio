@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bike Share Data Analysis &mdash; Ayman Marzuq Zaman</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../project.css" />
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">AMZ</a>
+      <ul class="nav-links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#projects">Work</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="project-main">
+
+    <a href="../index.html#projects" class="back-link">&larr; All Projects</a>
+
+    <header class="project-header">
+      <div class="project-meta-row">
+        <span class="project-category-tag">Programming</span>
+        <span class="project-date">Winter 2024</span>
+      </div>
+      <h1 class="project-title">Bike Share Data Analysis</h1>
+      <p class="project-intro">Pandas-based data analysis pipeline for the Toronto Bike Share dataset. Aggregates multi-file CSV trip records, ranks stations by usage volume, and computes average trip duration segmented by membership type and quarter.</p>
+    </header>
+
+    <div class="project-details-grid">
+      <div class="detail">
+        <span class="detail-label">Course</span>
+        <span class="detail-val">APS106 — Fundamentals of Computer Programming</span>
+      </div>
+      <div class="detail">
+        <span class="detail-label">Language</span>
+        <span class="detail-val">Python</span>
+      </div>
+      <div class="detail">
+        <span class="detail-label">Libraries</span>
+        <span class="detail-val">Pandas</span>
+      </div>
+      <div class="detail">
+        <span class="detail-label">Concepts</span>
+        <span class="detail-label">Data wrangling, Grouping, Filtering</span>
+      </div>
+    </div>
+
+    <div class="project-content">
+
+      <div class="content-section">
+        <h2 class="content-heading">Overview</h2>
+        <p>The dataset consists of quarterly Toronto Bike Share trip records spread across multiple CSV files, each named with embedded year and quarter metadata. The task was to build a pipeline that could load, parse, merge, and analyse this data — producing clean DataFrames for three distinct analysis tasks.</p>
+      </div>
+
+      <div class="content-section">
+        <h2 class="content-heading">Implementation</h2>
+        <p>Three functions were implemented:</p>
+        <ul>
+          <li><strong>create_bikeshare_df</strong> — loads all CSVs, parses year and quarter from each filename using string indexing, appends them as columns, and concatenates into a single unified DataFrame.</li>
+          <li><strong>rank_station_usage</strong> — filters by year and quarter, counts departures and returns per station using <code>value_counts()</code>, combines them, and sorts by total activity descending.</li>
+          <li><strong>average_trip_duration_by_membership</strong> — iterates over all year/quarter combinations, computes mean trip duration separately for <code>Member</code> and <code>Casual</code> user types, and returns a summary DataFrame.</li>
+        </ul>
+      </div>
+
+      <div class="content-code">
+        <div class="code-bar">
+          <span class="code-dot"></span>
+          <span class="code-dot"></span>
+          <span class="code-dot"></span>
+          <span class="code-filename">lab9.py</span>
+        </div>
+        <pre class="content-code-pre"><code><span class="kw">def</span> <span class="fn">create_bikeshare_df</span>(filenames):
+    bike = []
+    <span class="kw">for</span> file <span class="kw">in</span> filenames:
+        bike_data = pd.read_csv(file)
+        x = file.find(<span class="st">'('</span>)
+        y = file.find(<span class="st">')'</span>)
+        bike_data[<span class="st">"year"</span>]    = int(file[x + 1 : x + 5])
+        bike_data[<span class="st">"quarter"</span>] = int(file[y - 1 : y])
+        bike.append(bike_data)
+    <span class="kw">return</span> pd.concat(bike)
+
+<span class="kw">def</span> <span class="fn">rank_station_usage</span>(df, year, quarter):
+    new_df = df[
+        (df[<span class="st">"year"</span>] == year) &amp;
+        (df[<span class="st">"quarter"</span>] == quarter)
+    ]
+    usage[<span class="st">"departure_count"</span>] = (
+        new_df[<span class="st">"from_station_name"</span>].value_counts()
+    )
+    usage[<span class="st">"return_count"</span>] = (
+        new_df[<span class="st">"to_station_name"</span>].value_counts()
+    )
+    usage[<span class="st">"combined_departure_return_count"</span>] = (
+        usage[<span class="st">"departure_count"</span>] + usage[<span class="st">"return_count"</span>]
+    )
+    <span class="kw">return</span> usage.sort_values(
+        by=[<span class="st">"combined_departure_return_count"</span>],
+        ascending=[<span class="kw">False</span>]
+    )</code></pre>
+      </div>
+
+      <div class="content-section">
+        <h2 class="content-heading">Results</h2>
+        <p>All three functions produced correctly structured DataFrames. The station ranking correctly surfaces the busiest locations by combined departure and return volume, while the membership duration analysis shows consistent differences in average trip length between members and casual users across all quarters.</p>
+      </div>
+
+    </div>
+
+    <div class="project-footer-nav">
+      <a href="../index.html#projects" class="project-back-link">&larr; Back to Projects</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ayman Marzuq Zaman</p>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

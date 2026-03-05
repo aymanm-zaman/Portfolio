@@ -1,12 +1,20 @@
-const reveals = document.querySelectorAll(".reveal");
+// Nav: frosted glass on scroll
+const nav = document.getElementById('nav');
+if (nav) {
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+}
 
+// Reveal on scroll with stagger for grid siblings
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("active");
-      observer.unobserve(entry.target); // Animate only once
-    }
+    if (!entry.isIntersecting) return;
+    const siblings = [...entry.target.parentElement.querySelectorAll('.reveal:not(.active)')];
+    const delay = siblings.indexOf(entry.target) * 80;
+    setTimeout(() => entry.target.classList.add('active'), delay >= 0 ? delay : 0);
+    observer.unobserve(entry.target);
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.1 });
 
-reveals.forEach(r => observer.observe(r));
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
