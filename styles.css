@@ -486,6 +486,23 @@ footer {
 .code-snippet .st { color: #9dba87; }   /* strings */
 .code-snippet .nm { color: #4ec9b0; }   /* class / type names */
 
+/* ===== ELECTRONICS CARDS — PCB preview ===== */
+.card-pcb-wrap {
+  height: 200px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background: #060d04;
+  position: relative;
+}
+
+.card-pcb-svg {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .card-pcb-svg { transform: scale(1.04); }
+
 /* ===== REVEAL ANIMATIONS ===== */
 .reveal {
   opacity: 0;

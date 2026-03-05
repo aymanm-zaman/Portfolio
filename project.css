@@ -269,11 +269,59 @@ strong { color: var(--accent); font-weight: 500; }
 .content-code-pre .st { color: #9dba87; }
 .content-code-pre .nm { color: #4ec9b0; }
 
+/* ===== SCHEMATIC / PCB GRID ===== */
+.project-schematic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.schematic-panel { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.schematic-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+.schematic-img-wrap {
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+
+.schematic-img-wrap img {
+  width: 100%;
+  display: block;
+}
+
+.schematic-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  background: #060d04;
+}
+
+.schematic-placeholder--schem { background: #0a0a0a; }
+
+.schematic-note {
+  font-size: 0.7rem;
+  color: var(--text-3);
+  font-style: italic;
+  min-height: 0;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .project-details-grid { grid-template-columns: repeat(2, 1fr); }
   .project-metrics { gap: 2rem; }
   .project-gallery { grid-template-columns: 1fr; }
+  .project-schematic-grid { grid-template-columns: 1fr; }
   .project-main { padding: 7rem 1.5rem 4rem; }
 }
 
