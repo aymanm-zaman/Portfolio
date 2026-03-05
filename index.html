@@ -254,86 +254,8 @@
         <div class="cards-grid">
 
           <a href="projects/mie346-signal-conditioning.html" class="project-card project-card--elec reveal">
-            <div class="card-pcb-wrap">
-              <svg class="card-pcb-svg" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <pattern id="pcb-grid" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
-                    <circle cx="8" cy="8" r="0.7" fill="#0d1f0b"/>
-                  </pattern>
-                </defs>
-                <!-- substrate + dot grid -->
-                <rect width="320" height="200" fill="#060d04"/>
-                <rect width="320" height="200" fill="url(#pcb-grid)"/>
-                <!-- board outline -->
-                <rect x="5" y="5" width="310" height="190" rx="4" fill="none" stroke="#122010" stroke-width="1"/>
-                <!-- corner mounting holes -->
-                <circle cx="21" cy="21" r="8" fill="#060d04" stroke="#b03020" stroke-width="1.5"/>
-                <circle cx="21" cy="21" r="3.5" fill="#060d04" stroke="#333" stroke-width="0.8"/>
-                <circle cx="299" cy="21" r="8" fill="#060d04" stroke="#b03020" stroke-width="1.5"/>
-                <circle cx="299" cy="21" r="3.5" fill="#060d04" stroke="#333" stroke-width="0.8"/>
-                <circle cx="21" cy="179" r="8" fill="#060d04" stroke="#b03020" stroke-width="1.5"/>
-                <circle cx="21" cy="179" r="3.5" fill="#060d04" stroke="#333" stroke-width="0.8"/>
-                <circle cx="299" cy="179" r="8" fill="#060d04" stroke="#b03020" stroke-width="1.5"/>
-                <circle cx="299" cy="179" r="3.5" fill="#060d04" stroke="#333" stroke-width="0.8"/>
-                <!-- VDD bus — thick top trace -->
-                <line x1="38" y1="40" x2="282" y2="40" stroke="#b03020" stroke-width="5"/>
-                <!-- GND bus — bottom layer (blue) -->
-                <line x1="38" y1="162" x2="282" y2="162" stroke="#1a5fa0" stroke-width="5" opacity="0.8"/>
-                <!-- LM324N DIP body -->
-                <rect x="116" y="70" width="88" height="60" rx="1" fill="#090f08" stroke="#1c3018" stroke-width="1.2"/>
-                <path d="M153 70 Q160 65 167 70" fill="none" stroke="#1c3018" stroke-width="1.2"/>
-                <!-- IC pads left -->
-                <rect x="104" y="77" width="12" height="7" rx="1.5" fill="#b03020" opacity="0.85"/>
-                <rect x="104" y="89" width="12" height="7" rx="1.5" fill="#b03020" opacity="0.85"/>
-                <rect x="104" y="101" width="12" height="7" rx="1.5" fill="#b03020" opacity="0.85"/>
-                <rect x="104" y="113" width="12" height="7" rx="1.5" fill="#b03020" opacity="0.85"/>
-                <!-- IC pads right -->
-                <rect x="204" y="77" width="12" height="7" rx="1.5" fill="#b03020" opacity="0.85"/>
-                <rect x="204" y="89" width="12" height="7" rx="1.5" fill="#b03020" opacity="0.85"/>
-                <rect x="204" y="101" width="12" height="7" rx="1.5" fill="#b03020" opacity="0.85"/>
-                <rect x="204" y="113" width="12" height="7" rx="1.5" fill="#b03020" opacity="0.85"/>
-                <text x="160" y="103" font-family="'Courier New',monospace" font-size="8" fill="#2d5028" text-anchor="middle">LM324N</text>
-                <!-- Connector JP1 left -->
-                <rect x="36" y="78" width="14" height="52" rx="1" fill="#101008" stroke="#444" stroke-width="0.8"/>
-                <rect x="38" y="82" width="10" height="6" rx="1" fill="#b03020" opacity="0.7"/>
-                <rect x="38" y="92" width="10" height="6" rx="1" fill="#b03020" opacity="0.7"/>
-                <rect x="38" y="102" width="10" height="6" rx="1" fill="#b03020" opacity="0.7"/>
-                <rect x="38" y="112" width="10" height="6" rx="1" fill="#b03020" opacity="0.7"/>
-                <rect x="38" y="122" width="10" height="6" rx="1" fill="#b03020" opacity="0.7"/>
-                <!-- Resistor R1 vertical -->
-                <line x1="78" y1="40" x2="78" y2="58" stroke="#b03020" stroke-width="2"/>
-                <rect x="72" y="58" width="12" height="22" rx="1" fill="#181808" stroke="#777" stroke-width="0.8"/>
-                <line x1="78" y1="80" x2="78" y2="104" stroke="#b03020" stroke-width="2"/>
-                <!-- Resistor R2 vertical -->
-                <line x1="140" y1="40" x2="140" y2="57" stroke="#b03020" stroke-width="2"/>
-                <rect x="134" y="57" width="12" height="20" rx="1" fill="#181808" stroke="#777" stroke-width="0.8"/>
-                <line x1="140" y1="77" x2="140" y2="81" stroke="#b03020" stroke-width="2"/>
-                <!-- Cap C1 right -->
-                <line x1="255" y1="40" x2="255" y2="62" stroke="#b03020" stroke-width="2"/>
-                <line x1="247" y1="62" x2="263" y2="62" stroke="#b03020" stroke-width="2.5"/>
-                <line x1="247" y1="69" x2="263" y2="69" stroke="#b03020" stroke-width="2"/>
-                <line x1="255" y1="69" x2="255" y2="88" stroke="#b03020" stroke-width="2"/>
-                <!-- Signal traces top layer -->
-                <path d="M50 85 L104 85" stroke="#b03020" stroke-width="2" fill="none"/>
-                <path d="M50 116 L104 116" stroke="#b03020" stroke-width="2" fill="none"/>
-                <path d="M78 104 L104 104" stroke="#b03020" stroke-width="2" fill="none"/>
-                <path d="M216 80 L255 80 L255 88" stroke="#b03020" stroke-width="2" fill="none" stroke-linejoin="round"/>
-                <path d="M216 117 L240 117 L240 162" stroke="#b03020" stroke-width="2" fill="none" stroke-linejoin="round"/>
-                <!-- Bottom layer traces blue -->
-                <path d="M78 104 L78 162" stroke="#1a5fa0" stroke-width="2" opacity="0.7" fill="none"/>
-                <path d="M160 130 L160 162" stroke="#1a5fa0" stroke-width="2" opacity="0.7" fill="none"/>
-                <!-- Vias -->
-                <circle cx="78" cy="40" r="4" fill="#b03020" opacity="0.6"/>
-                <circle cx="78" cy="40" r="1.8" fill="#060d04"/>
-                <circle cx="240" cy="162" r="4" fill="#b03020" opacity="0.6"/>
-                <circle cx="240" cy="162" r="1.8" fill="#060d04"/>
-                <circle cx="160" cy="162" r="4" fill="#1a5fa0" opacity="0.6"/>
-                <circle cx="160" cy="162" r="1.8" fill="#060d04"/>
-                <!-- Labels -->
-                <text x="270" y="35" font-family="'Courier New',monospace" font-size="7" fill="#b03020" opacity="0.6">VDD</text>
-                <text x="265" y="175" font-family="'Courier New',monospace" font-size="7" fill="#1a5fa0" opacity="0.6">GND</text>
-                <text x="25" y="73" font-family="'Courier New',monospace" font-size="6" fill="#3a6038" opacity="0.9">JP1</text>
-              </svg>
+            <div class="card-img-wrap">
+              <img class="card-img" src="assets/mie346/pcb-layout.jpg" alt="MIE346 PCB Layout" />
             </div>
             <div class="card-body">
               <h3 class="card-title">LM324N Signal Conditioning PCB &mdash; MIE346</h3>
