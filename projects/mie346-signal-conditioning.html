@@ -32,7 +32,7 @@
         <span class="project-category-tag">Electronics &amp; Mechatronics</span>
         <span class="project-date">Winter 2025</span>
       </div>
-      <h1 class="project-title">Adjustable DC Power Supply &mdash; MIE346</h1>
+      <h1 class="project-title">Adjustable DC Power Supply</h1>
     </header>
 
     <div class="project-metrics">
@@ -72,16 +72,16 @@
         <span class="detail-val">MIE346 — Electronics for Mechanical Engineers</span>
       </div>
       <div class="detail">
-        <span class="detail-label">Collaborator</span>
-        <span class="detail-val">Sayali (Class of 2T6)</span>
-      </div>
-      <div class="detail">
         <span class="detail-label">Tools</span>
-        <span class="detail-val">KiCad, LTspice</span>
+        <span class="detail-val">Eagle, LTspice</span>
       </div>
       <div class="detail">
         <span class="detail-label">IC</span>
         <span class="detail-val">LM324N Quad Op-Amp</span>
+      </div>
+      <div class="detail">
+        <span class="detail-label">Type</span>
+        <span class="detail-val">Group Project</span>
       </div>
     </div>
 
@@ -89,14 +89,14 @@
 
       <div class="content-section">
         <h2 class="content-heading">Overview</h2>
-        <p>MIE346 runs a semester-long design assignment series in which students design and build a low-cost adjustable DC lab power supply. The supply takes 19V DC input from a laptop adapter and produces an adjustable 0 to 15V output with a 0 to 3A current limit, regulated by a switching regulator and STM32 microcontroller.</p>
-        <p>My portion of the design focused on the current sense amplifier and filter &mdash; the analog sub-circuit responsible for measuring output current via a 0.1&thinsp;&Omega; shunt resistor and conditioning the signal into a 0.25 to 3.3V range readable by the microcontroller's ADC. This is the feedback path that enables the supply's current limiting behaviour.</p>
+        <p>MIE346 runs a semester-long design assignment series where each year's cohort tackles a different electronics project. This year, the project was a low-cost adjustable DC lab power supply. The supply takes 19V DC input from a laptop adapter and produces an adjustable 0 to 15V output with a 0 to 3A current limit, regulated by a switching regulator and STM32 microcontroller.</p>
+        <p>We designed the current sense amplifier and filter: the analog sub-circuit responsible for measuring output current via a 0.1&thinsp;&Omega; shunt resistor and conditioning the signal into a 0.25 to 3.3V range readable by the microcontroller's ADC. This is the feedback path that enables the supply's current limiting behaviour.</p>
       </div>
 
       <div class="content-section reflections-section">
         <h2 class="content-heading">Reflections</h2>
-        <p>This was my first time designing a PCB &mdash; and the first time in almost ten years of schooling that circuits felt useful. From grade school onwards, finding voltages and currents was always an abstract exercise. MIE346 changed that completely. You put a signal in, you manipulate it with components you chose, and you get a deterministic output. Watching that happen in the lab &mdash; in real time, matching the math and the simulation &mdash; was genuinely exciting.</p>
-        <p>KiCad was a challenge, particularly around component placement and trace routing on a board this dense. Soldering was new too, and I found both surprisingly enjoyable. This project cemented an interest in integrated circuits and analog design that I didn't expect coming into the course.</p>
+        <p>This was my first time designing a PCB, and the first time in almost ten years of schooling that circuits felt useful. From grade school onwards, finding voltages and currents was always an abstract exercise. MIE346 changed that completely. You put a signal in, you manipulate it with components you chose, and you get a deterministic output. Watching that happen in the lab, in real time, matching the math and the simulation, was genuinely exciting.</p>
+        <p>Eagle was a challenge, particularly around component placement and trace routing on a board this dense. Soldering was new too, and I found both surprisingly enjoyable. This project cemented an interest in integrated circuits and analog design that I didn't expect coming into the course.</p>
       </div>
 
       <div class="engineering-collapsible">
@@ -109,13 +109,13 @@
 
             <div class="content-section">
               <h2 class="content-heading">Circuit Design</h2>
-              <p>The circuit uses all four op-amp sections of the LM324N across two parallel signal chains. The VOUT1 chain (IC1A to IC1B) handles current sense amplification: IC1A acts as a differential amplifier summing the shunt voltage with a reference set by a resistor divider, and IC1B applies a second gain stage with a feedback capacitor for frequency roll-off.</p>
-              <p>The VOUT2 chain (IC1C to IC1D) processes a reference voltage signal through inverting gain stages with additional scaling. Both chains use small capacitors for high-frequency noise rejection. Resistor values in the gain networks were calculated from the required transfer functions, then selected to the nearest E96 standard values. The design was simulated in LTspice before layout.</p>
+              <p>The circuit uses all four op-amp sections of the LM324N across two parallel signal chains. IC1A serves as a differential summing amplifier, combining the shunt voltage with a reference set by a resistor divider. The remaining three stages (IC1B through IC1D) act as active filters, providing gain, frequency roll-off, and scaling to condition the signal for the microcontroller's ADC input range.</p>
+              <p>Both output chains use small capacitors for high-frequency noise rejection. Resistor values in the gain networks were calculated from the required transfer functions, then selected to the nearest E96 standard values. The design was simulated in LTspice before layout.</p>
             </div>
 
             <div class="content-section">
               <h2 class="content-heading">PCB Layout</h2>
-              <p>The two-layer board was laid out in KiCad. The top copper layer carries signal traces; the bottom layer handles return paths and cross-unders. Layout priorities included keeping signal traces short between the input connector and the first op-amp stage to minimise parasitic capacitance, placing decoupling capacitors close to IC power pins, routing a clean ground return on the bottom layer, and maintaining adequate copper clearance for the +19V supply traces. The design passed DRC and Gerber files were generated for fabrication.</p>
+              <p>The two-layer board was laid out in Eagle. The top copper layer carries signal traces; the bottom layer handles return paths and cross-unders. Layout priorities included keeping signal traces short between the input connector and the first op-amp stage to minimise parasitic capacitance, placing decoupling capacitors close to IC power pins, routing a clean ground return on the bottom layer, and maintaining adequate copper clearance for the +19V supply traces. The design passed DRC and Gerber files were generated for fabrication.</p>
             </div>
 
           </div>
