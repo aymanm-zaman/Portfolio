@@ -5,7 +5,7 @@
 /* Per-page accent overrides */
 body.accent-yellow { --accent: var(--yellow); --accent-dim: var(--yellow-dim); }
 body.accent-blue   { --accent: var(--blue);   --accent-dim: var(--blue-dim); }
-body.accent-red    { --accent: var(--red);     --accent-dim: var(--red-dim); }
+body.accent-orange { --accent: var(--orange); --accent-dim: var(--orange-dim); }
 
 /* ===== PAGE WRAPPER ===== */
 .project-main {
@@ -41,13 +41,13 @@ body.accent-red    { --accent: var(--red);     --accent-dim: var(--red-dim); }
 
 .project-category-tag {
   font-size: 0.65rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent);
   background: var(--accent-dim);
   padding: 0.2rem 0.65rem;
-  border-radius: 2px;
+  border-radius: 0;
 }
 
 .project-date {
@@ -56,8 +56,9 @@ body.accent-red    { --accent: var(--red);     --accent-dim: var(--red-dim); }
 }
 
 .project-title {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--text-1);
@@ -66,7 +67,7 @@ body.accent-red    { --accent: var(--red);     --accent-dim: var(--red-dim); }
 
 .project-intro {
   font-size: 1.05rem;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--text-2);
   line-height: 1.8;
   max-width: 640px;
@@ -77,17 +78,17 @@ body.accent-red    { --accent: var(--red);     --accent-dim: var(--red-dim); }
   display: flex;
   gap: 3rem;
   flex-wrap: wrap;
-  padding: 2rem 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  padding: 2rem;
+  background: var(--surface);
   margin-bottom: 3rem;
 }
 
 .metric { display: flex; flex-direction: column; gap: 0.3rem; }
 
 .metric-val {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 2.2rem;
+  font-weight: 700;
   color: var(--text-1);
   line-height: 1;
 }
@@ -103,7 +104,7 @@ body.accent-red    { --accent: var(--red);     --accent-dim: var(--red-dim); }
 /* ===== HERO IMAGE ===== */
 .project-hero-img {
   margin-bottom: 3rem;
-  border-radius: 3px;
+  border-radius: 0;
   overflow: hidden;
   border: 1px solid var(--border);
   background: var(--surface-2);
@@ -122,7 +123,7 @@ body.accent-red    { --accent: var(--red);     --accent-dim: var(--red-dim); }
 }
 
 .project-hero-img.placeholder-img span {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-style: italic;
   font-size: 1.2rem;
   color: var(--text-3);
@@ -133,9 +134,8 @@ body.accent-red    { --accent: var(--red);     --accent-dim: var(--red-dim); }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  padding: 2rem 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  padding: 2rem;
+  background: var(--surface);
   margin-bottom: 4rem;
 }
 
@@ -161,9 +161,9 @@ body.accent-red    { --accent: var(--red);     --accent-dim: var(--red-dim); }
 .content-section { margin-bottom: 2.5rem; }
 
 .content-heading {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 1.4rem;
-  font-weight: 400;
+  font-weight: 700;
   color: var(--text-1);
   margin-bottom: 0.9rem;
 }
@@ -202,7 +202,7 @@ body.accent-red    { --accent: var(--red);     --accent-dim: var(--red-dim); }
   top: 0.05em;
 }
 
-strong { color: var(--accent); font-weight: 500; }
+strong { color: var(--accent); font-weight: 600; }
 
 /* ===== IMAGE GALLERY ===== */
 .project-gallery {
@@ -216,7 +216,7 @@ strong { color: var(--accent); font-weight: 500; }
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 3px;
+  border-radius: 0;
   border: 1px solid var(--border);
   display: block;
 }
@@ -224,7 +224,7 @@ strong { color: var(--accent); font-weight: 500; }
 /* ===== BOTTOM NAV ===== */
 .project-footer-nav {
   padding: 2rem 0;
-  border-top: 1px solid var(--border);
+  margin-top: 2rem;
 }
 
 .project-back-link {
@@ -241,10 +241,10 @@ strong { color: var(--accent); font-weight: 500; }
 /* ===== CODE BLOCKS (programming project pages) ===== */
 .content-code {
   border: 1px solid var(--border);
-  border-radius: 3px;
+  border-radius: 0;
   overflow: hidden;
   margin: 1.5rem 0 2.5rem;
-  background: #080808;
+  background: #1e1e1e;
 }
 
 .content-code-pre {
@@ -261,11 +261,11 @@ strong { color: var(--accent); font-weight: 500; }
 .content-section code {
   font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
   font-size: 0.82em;
-  background: var(--surface-2);
+  background: var(--surface);
   border: 1px solid var(--border);
   color: var(--accent);
   padding: 0.1em 0.4em;
-  border-radius: 2px;
+  border-radius: 0;
 }
 
 /* Syntax colouring — shared with card snippets */
@@ -294,7 +294,7 @@ strong { color: var(--accent); font-weight: 500; }
 
 .schematic-img-wrap {
   border: 1px solid var(--border);
-  border-radius: 3px;
+  border-radius: 0;
   overflow: hidden;
   background: var(--surface-2);
 }
@@ -309,10 +309,10 @@ strong { color: var(--accent); font-weight: 500; }
   align-items: center;
   justify-content: center;
   aspect-ratio: 4 / 3;
-  background: #060d04;
+  background: var(--surface-2);
 }
 
-.schematic-placeholder--schem { background: #0a0a0a; }
+.schematic-placeholder--schem { background: var(--surface); }
 
 .schematic-note {
   font-size: 0.7rem;
@@ -333,29 +333,27 @@ strong { color: var(--accent); font-weight: 500; }
 
 /* ===== COLLAPSIBLE: THE ENGINEERING ===== */
 .engineering-collapsible {
-  border-top: 1px solid var(--border);
   margin-bottom: 4rem;
 }
 
 .engineering-toggle {
   width: 100%;
-  background: none;
+  background: var(--surface);
   border: none;
-  border-bottom: 1px solid var(--border);
-  padding: 1.25rem 0;
+  padding: 1.25rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: background 0.2s;
 }
 
-.engineering-toggle:hover { opacity: 0.8; }
+.engineering-toggle:hover { background: var(--surface-2); }
 
 .engineering-toggle-text {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 600;
   color: var(--text-1);
   letter-spacing: -0.01em;
 }

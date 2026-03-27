@@ -1,8 +1,22 @@
-// Nav: frosted glass on scroll
+// Nav: frosted glass on scroll + active section underline
 const nav = document.getElementById('nav');
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+const sections = [...navLinks].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
 if (nav) {
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
+
+    const scrollY = window.scrollY + 120;
+    let currentId = '';
+    sections.forEach(section => {
+      if (section.offsetTop <= scrollY) {
+        currentId = section.id;
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + currentId);
+    });
   }, { passive: true });
 }
 
