@@ -2,6 +2,11 @@
    These pages also link to styles.css for shared variables, nav, and base styles.
    This file adds only the project-page-specific layout. */
 
+/* Per-page accent overrides */
+body.accent-yellow { --accent: var(--yellow); --accent-dim: var(--yellow-dim); }
+body.accent-blue   { --accent: var(--blue);   --accent-dim: var(--blue-dim); }
+body.accent-red    { --accent: var(--red);     --accent-dim: var(--red-dim); }
+
 /* ===== PAGE WRAPPER ===== */
 .project-main {
   max-width: 820px;
