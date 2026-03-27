@@ -172,7 +172,8 @@ a { color: inherit; text-decoration: none; }
 .hero-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, var(--bg) 0%, transparent 10%);
+  /* Fades from 40% opacity at the very bottom to 0% by the middle of the screen */
+  background: linear-gradient(to top, rgba(237, 232, 223, 0.4) 0%, transparent 20%);
   z-index: 1;
 }
 
@@ -182,7 +183,7 @@ a { color: inherit; text-decoration: none; }
   max-width: var(--max-w);
   width: 100%;
   margin: 0 auto;
-  padding: 2rem 2rem 6rem;
+  padding: 2rem 2rem 14rem;
 }
 
 .hero-eyebrow {
